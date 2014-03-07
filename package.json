@@ -1,0 +1,17 @@
+{
+  "name": "def-underscore",
+  "version": "1.0.0",
+  "description": "Precompile Underscore template to JST",
+  "main": "index.js",
+  "scripts": {
+    "test": "test.js"
+  },
+  "keywords": [
+    "defplugin",
+    "gruntplugin",
+    "underscore",
+    "precompile"
+  ],
+  "author": "myhere.2009@gmail.com",
+  "license": "MIT"
+}
