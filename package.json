@@ -24,6 +24,7 @@
   "engines": {
     "node": ">= 0.8.0"
   },
+  "main": "lib/main.js",
   "scripts": {
     "test": "grunt test"
   },
@@ -42,6 +43,7 @@
     "underscore compiler"
   ],
   "dependencies": {
-    "lodash": "~2.4.1"
+    "lodash": "~2.4.1",
+    "uglify-js": "~2.4.12"
   }
 }
