@@ -1,17 +1,47 @@
 {
   "name": "def-underscore",
-  "version": "1.0.0",
   "description": "Precompile Underscore template to JST",
-  "main": "index.js",
+  "version": "0.1.0",
+  "homepage": "https://github.com/myhere/def-underscore",
+  "author": {
+    "name": "myhere",
+    "email": "myhere.2009@gmail.com",
+    "url": "http://github.zhangl.in/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:myhere/def-underscore.git"
+  },
+  "bugs": {
+    "url": "https://github.com/myhere/def-underscore/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/myhere/def-underscore/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.8.0"
+  },
   "scripts": {
-    "test": "test.js"
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-clean": "~0.4.0",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt": "~0.4.2"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.2"
   },
   "keywords": [
-    "defplugin",
     "gruntplugin",
-    "underscore",
-    "precompile"
+    "defplugin",
+    "underscore compiler"
   ],
-  "author": "myhere.2009@gmail.com",
-  "license": "MIT"
+  "dependencies": {
+    "lodash": "~2.4.1"
+  }
 }
