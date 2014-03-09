@@ -1,6 +1,6 @@
 /*
- * grunt-def-underscore
- * https://github.com/linqian.zl/def-underscore
+ * grunt-underscore-jst
+ * https://github.com/myhere/grunt-underscore-jst
  *
  * Copyright (c) 2014 myhere
  * Licensed under the MIT license.
@@ -13,7 +13,7 @@ module.exports = function(grunt) {
   // Please see the Grunt documentation for more information regarding task
   // creation: http://gruntjs.com/creating-tasks
 
-  grunt.registerMultiTask('def_underscore', 'Precompile Underscore template to JST', function() {
+  grunt.registerMultiTask('underscore_jst', 'Precompile Underscore template to JST', function() {
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
       punctuation: '.',

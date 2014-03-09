@@ -1,6 +1,6 @@
 /*
- * grunt-def-underscore
- * https://github.com/myhere/def-underscore
+ * grunt-underscore-jst
+ * https://github.com/myhere/grunt-underscore-jst
  *
  * Copyright (c) 2014 myhere
  * Licensed under the MIT license.
@@ -30,7 +30,7 @@ module.exports = function(grunt) {
     },
 
     // Configuration to be run (and then tested).
-    def_underscore: {
+    underscore_jst: {
       default_options: {
         options: {
         },
@@ -66,7 +66,7 @@ module.exports = function(grunt) {
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', 'def_underscore', 'nodeunit']);
+  grunt.registerTask('test', ['clean', 'underscore_jst', 'nodeunit']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);

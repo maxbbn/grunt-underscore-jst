@@ -1,8 +1,8 @@
 {
-  "name": "def-underscore",
-  "description": "Precompile Underscore template to JST",
+  "name": "grunt-underscore-jst",
+  "description": "Precompile Underscore template to KISSY Module or AMD module or jst file",
   "version": "0.1.0",
-  "homepage": "https://github.com/myhere/def-underscore",
+  "homepage": "https://github.com/myhere/grunt-underscore-jst",
   "author": {
     "name": "myhere",
     "email": "myhere.2009@gmail.com",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:myhere/def-underscore.git"
+    "url": "git@github.com:myhere/grunt-underscore-jst.git"
   },
   "bugs": {
-    "url": "https://github.com/myhere/def-underscore/issues"
+    "url": "https://github.com/myhere/grunt-underscore-jst/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/myhere/def-underscore/blob/master/LICENSE-MIT"
+      "url": "https://github.com/myhere/grunt-underscore-jst/blob/master/LICENSE-MIT"
     }
   ],
   "engines": {
@@ -39,8 +39,8 @@
   },
   "keywords": [
     "gruntplugin",
-    "defplugin",
-    "underscore compiler"
+    "underscore compiler",
+    "kissy module"
   ],
   "dependencies": {
     "lodash": "~2.4.1",
