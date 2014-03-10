@@ -26,47 +26,77 @@ In your project's Gruntfile, add a section named `underscore_jst` to the data ob
 grunt.initConfig({
   underscore_jst: {
     options: {
-      // Task-specific options go here.
-    },
-    your_target: {
-      // Target-specific file lists and/or options go here.
-    },
+      templateSettings: {
+        // escape,
+        // evaluate,
+        // imports,
+        // interpolate,
+        // variable
+      },
+      outputSettings: {
+        // style,
+        // withModName,
+        // processName,
+        // processContent,
+        // beautify
+      },
+      files: [
+        {
+          expand: true,
+          src: 'tmpls/*.html',
+          rename: function(dest, src) {
+            return src + '.js';
+          }
+        }
+      ]
+    }
   },
 });
 ```
 
 ### Options
 
-#### options.templateOptions
+#### options.templateSettings
 Type: `Object`
-Default value: `',  '`
+Default value: `{}`
+See: [_.template() argument `options`](http://lodash.com/docs#template)
 
 A string value that is used to do something with whatever.
 
-#### options.outputOptions
+#### options.outputSettings
 Type: `Object`
-Default value: `'.'`
+Default value: `{}`
 
 A string value that is used to do something else with whatever else.
 
-#### options.rename
+#### options.outputSettings.style
+Type: `string` or `Object`
+Default Value: `'kmd'`
+* when is `string`, it's enumerable, ie 'kmd' or 'amd'
+* when is `Object`, `options.outputSettings.style.namespace` is the jst variable name
+
+#### options.outputSettings.withModName
+Type: `boolean`
+Default Value: `false`
+When `options.outputSettings.style` is enuerable, it tells whether generate `modName`
+
+#### options.outputSettings.processName(filepath)
 Type: `Function`
+Default Value: `null`
+* argument `filepath` is the file path 
+* `return` value is `modName`
 
-### Usage Examples
+#### options.outputSettings.processContent(text)
+Type: `Function`
+Default Value: `string`
+* argument `text` is the file content;
+* `return` value is the content to be compiled
 
-#### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
+#### options.outputSettings.beautify
+Type: `boolean`
+Default Value: `true`
+Whether pretty the compiled js code
 
-```js
-grunt.initConfig({
-  underscore_jst: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
-```
 
 
 ## Node module
@@ -74,13 +104,13 @@ grunt.initConfig({
 ```js
 var compiler = require('grunt-underscore-jst');
 
-var result = compiler.generateModule(text, compileOptions, outputOptions);
+var result = compiler.generateModule(text, templateSettings, templateSettings);
 
 if (!result.error) {
   console.log(result.code);
 }
 ```
 
-### generateModule
+### generateModule(text, templateSettings, outputSettings)
 * parameters document plz see [lib/main.js](./lib/main.js)
 

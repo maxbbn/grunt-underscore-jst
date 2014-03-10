@@ -23,11 +23,6 @@ module.exports = function(grunt) {
       templateSettings: {
       },
       outputSettings: {
-        // style: 'kmd',
-        // processContent: function(text) { return text; },
-
-        processName: function(filename) { return filename; },
-        // beautify: true
       }
     });
 
@@ -60,11 +55,12 @@ module.exports = function(grunt) {
 
         if (result.error) {
           grunt.log.error(result.error.message);
+          grunt.fail.warn('Error.');
         } else {
           // Write the destination file.
           grunt.file.write(f.dest, result.code);
           // Print a success message.
-          grunt.log.writeln('File "' + f.dest + '" created.');
+          grunt.log.writeln('File "' + f.dest.cyan + '" created.');
         }
       });
     });
