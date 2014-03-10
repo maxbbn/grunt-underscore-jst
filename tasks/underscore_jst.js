@@ -8,6 +8,9 @@
 
 'use strict';
 
+var transformer = require('../lib/main');
+var _ = require('lodash');
+
 module.exports = function(grunt) {
 
   // Please see the Grunt documentation for more information regarding task
@@ -16,8 +19,16 @@ module.exports = function(grunt) {
   grunt.registerMultiTask('underscore_jst', 'Precompile Underscore template to JST', function() {
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
-      punctuation: '.',
-      separator: ', '
+      // see lo-dash `template()` argument `options`
+      templateSettings: {
+      },
+      outputSettings: {
+        // style: 'kmd',
+        // processContent: function(text) { return text; },
+
+        processName: function(filename) { return filename; },
+        // beautify: true
+      }
     });
 
     // Iterate over all specified file groups.
@@ -33,17 +44,29 @@ module.exports = function(grunt) {
         }
       }).map(function(filepath) {
         // Read file source.
-        return grunt.file.read(filepath);
-      }).join(grunt.util.normalizelf(options.separator));
+        var text = grunt.file.read(filepath);
+        var templateSettings = options.templateSettings,
+            outputSettings = options.outputSettings;
 
-      // Handle options.
-      src += options.punctuation;
+        var modName;
+        if (_.isFunction(outputSettings.processName)) {
+          modName = outputSettings.processName(filepath);
+        } else {
+          modName = filepath;
+        }
+        outputSettings.modName = modName;
 
-      // Write the destination file.
-      grunt.file.write(f.dest, src);
+        var result = transformer.generateModule(text, templateSettings, outputSettings);
 
-      // Print a success message.
-      grunt.log.writeln('File "' + f.dest + '" created.');
+        if (result.error) {
+          grunt.log.error(result.error.message);
+        } else {
+          // Write the destination file.
+          grunt.file.write(f.dest, result.code);
+          // Print a success message.
+          grunt.log.writeln('File "' + f.dest + '" created.');
+        }
+      });
     });
   });
 
