@@ -54,7 +54,9 @@ module.exports = function(grunt) {
         var result = transformer.generateModule(text, templateSettings, outputSettings);
 
         if (result.error) {
-          grunt.log.error(result.error.message);
+          var message = result.error.message;
+
+          grunt.log.writeln(message);
           grunt.fail.warn('Error.');
         } else {
           // Write the destination file.
