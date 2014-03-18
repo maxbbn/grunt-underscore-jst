@@ -25,20 +25,22 @@ In your project's Gruntfile, add a section named `underscore_jst` to the data ob
 ```js
 grunt.initConfig({
   underscore_jst: {
-    options: {
-      templateSettings: {
-        // escape,
-        // evaluate,
-        // imports,
-        // interpolate,
-        // variable
-      },
-      outputSettings: {
-        // style,
-        // withModName,
-        // processName,
-        // processContent,
-        // beautify
+    compile: {
+      options: {
+        templateSettings: {
+          // escape,
+          // evaluate,
+          // imports,
+          // interpolate,
+          // variable
+        },
+        outputSettings: {
+          // style,
+          // withModName,
+          // processName,
+          // processContent,
+          // beautify
+        },
       },
       files: [
         {
