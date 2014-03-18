@@ -1,6 +1,6 @@
 # grunt-underscore-jst
 
-> Precompile Underscore template to JST, a node module, also a grunt plugin.
+> Precompile Underscore template to JST, a node module, also a grunt plugin. The dependence on [underscore](http://underscorejs.org/) is removed.
 
 ## Grunt plugin
 This plugin requires Grunt `~0.4.2`
