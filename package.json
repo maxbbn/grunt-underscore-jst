@@ -1,7 +1,7 @@
 {
   "name": "grunt-underscore-jst",
   "description": "Precompile Underscore template to KISSY Module or AMD module or jst file",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "homepage": "https://github.com/myhere/grunt-underscore-jst",
   "author": {
     "name": "myhere",
